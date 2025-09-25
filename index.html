@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laippa-yhteensopivuuslaskuri</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Laippa-yhteensopivuuslaskuri</h1>
+        <label for="dn-select">Valitse DN-koko:</label>
+        <select id="dn-select" onchange="updatePNOptions()">
+            <option value="">-- Valitse DN --</option>
+        </select><br>
+
+        <label for="pn1-select">Valitse ensimmäinen PN-luokka:</label>
+        <select id="pn1-select" onchange="checkCompatibility()">
+            <option value="">-- Valitse PN --</option>
+        </select><br>
+
+        <label for="pn2-select">Valitse toinen PN-luokka:</label>
+        <select id="pn2-select" onchange="checkCompatibility()">
+            <option value="">-- Valitse PN --</option>
+        </select><br>
+
+        <div id="result">
+            <h2>Tulos:</h2>
+            <p id="compatibility-result">Yhteensopivuus: -</p>
+            <table id="flange-table">
+                <thead>
+                    <tr>
+                        <th>Laippa</th>
+                        <th>DN</th>
+                        <th>PN</th>
+                        <th>Laipan halkaisija (mm)</th>
+                        <th>PCD (mm)</th>
+                        <th>Reikien määrä</th>
+                        <th>Pultinreiän halkaisija (mm)</th>
+                    </tr>
+                </thead>
+                <tbody id="flange-table-body"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
